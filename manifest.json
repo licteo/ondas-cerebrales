@@ -1,11 +1,10 @@
 {
-  "name": "🌿 Guía Espiritual del Cuerpo y la Mente",
-  "short_name": "Guía Espiritual",
+  "name": "Guía Espiritual del Cuerpo y la Mente",
+  "short_name": "GuíaEspiritual",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0b6b4a",
-  "description": "Rutinas y reflexiones diarias para cuerpo, mente y espíritu.",
+  "background_color": "#d1fae5",
+  "theme_color": "#059669",
   "icons": [
     {
       "src": "icon-192.png",
@@ -19,4 +18,3 @@
     }
   ]
 }
-

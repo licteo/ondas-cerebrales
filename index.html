@@ -4,62 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>🌿 Guía Espiritual del Cuerpo y la Mente</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon-192.png" />
-  <meta name="theme-color" content="#0b6b4a" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Guía de frecuencias, BPM y versículos para momentos espirituales y actividades del día."/>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="app-header">
-    <div class="title-group">
-      <h1>🌿 Guía Espiritual del Cuerpo y la Mente</h1>
-      <p class="subtitle">Conecta tu cuerpo, tu mente y tu espíritu</p>
-    </div>
-    <div class="controls">
-      <button id="theme-toggle" aria-pressed="false" title="Modo oscuro/claro">🌗</button>
-      <button id="install-btn" class="install-btn" hidden>Instalar app</button>
-    </div>
-  </header>
+  <div class="app container">
+    <header class="header">
+      <div>
+        <h1>🌿 Guía Espiritual del Cuerpo y la Mente</h1>
+        <p class="subtitle">Conecta tu cuerpo, tu mente y tu espíritu</p>
+        <div id="dailyBox" class="dailyBox" aria-live="polite"></div>
+      </div>
+      <div class="header-actions">
+        <button id="installBtn" class="btn primary" hidden>Instalar App</button>
+        <button id="modeBtn" class="btn">Modo noche</button>
+        <button id="exportBtn" class="btn">Descargar .txt</button>
+      </div>
+    </header>
 
-  <main class="container">
-    <section class="days">
-      <!-- day buttons injected by JS -->
+    <nav class="days" id="days" aria-label="Días de la semana"></nav>
+
+    <section class="controls">
+      <label><input type="checkbox" id="showAll" checked> Mostrar todas las actividades</label>
+      <label style="margin-left:16px;"><input type="checkbox" id="showAssigned"> Mostrar solo asignadas al día</label>
     </section>
 
-    <section class="content">
-      <div class="day-header">
-        <h2 id="selected-day">Seleccione un día</h2>
-        <p id="day-note" class="muted">Toca un día para ver actividades espirituales sugeridas.</p>
-      </div>
+    <main id="cards" class="grid" aria-live="polite"></main>
 
-      <div id="activities" class="activities">
-        <!-- activities injected by JS -->
-      </div>
-    </section>
-  </main>
+    <aside class="panel" aria-label="Panel lateral">
+      <h3>Asignaciones del día</h3>
+      <div id="dayList" class="meta"></div>
+      <hr/>
+      <h3>Notas del día</h3>
+      <textarea id="noteArea" placeholder="Escribe una nota para el día..."></textarea>
+      <div style="margin-top:8px"><button id="saveNote" class="btn primary">Guardar nota</button></div>
+    </aside>
 
-  <template id="activity-tpl">
-    <article class="activity">
-      <div class="activity-left">
-        <h3 class="activity-title"></h3>
-        <p class="activity-reflection muted"></p>
-      </div>
-      <div class="activity-right">
-        <div class="meta">
-          <span class="brainwave"></span>
-          <span class="bpm"></span>
-        </div>
-        <blockquote class="verse"></blockquote>
-      </div>
-    </article>
-  </template>
+    <footer class="footer">Presiona <strong>D</strong> para descargar el resumen. App lista para instalar como PWA.</footer>
+  </div>
 
-  <footer class="footer muted">
-    <small>Diseñado para práctica diaria y reflexión. Funciona offline una vez instalada.</small>
-  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js" defer></script>
+<script>window.DAILY = [{"day": "Lunes", "verse": "Salmo 46:10 — Estad quietos y conoced que yo soy Dios; seré exaltado entre las naciones, enaltecido seré en la tierra.", "dev": "Toma un momento de silencio para escuchar a Dios. La quietud abre el corazón."}, {"day": "Martes", "verse": "Filipenses 4:6-7 — No se inquieten por nada; antes, en toda oración y ruego...", "dev": "Entrega tus ansiedades en oración; la paz de Dios guardará tu corazón."}, {"day": "Miércoles", "verse": "Proverbios 3:5-6 — Confía en el Señor con todo tu corazón...", "dev": "Confía más en su guía que en tu entendimiento; él ordenará tus pasos."}, {"day": "Jueves", "verse": "Mateo 11:28 — Venid a mí todos los que estáis trabajados y cargados...", "dev": "Descansa en Cristo; su yugo es suave y su carga ligera."}, {"day": "Viernes", "verse": "Salmo 23:1 — Jehová es mi pastor; nada me faltará.", "dev": "Día de gratitud: reconoce el cuidado diario del Pastor sobre ti."}, {"day": "Sábado", "verse": "Hebreos 4:9-10 — Queda, pues, un descanso para el pueblo de Dios.", "dev": "Busca el descanso que renueva: descanso físico y espiritual en su presencia."}, {"day": "Domingo", "verse": "Romanos 12:12 — Gozosos en la esperanza; sufridos en la tribulación; constantes en la oración.", "dev": "Renueva tu alma celebrando la esperanza que tienes en Cristo."}];</script>
+<script src="app.js"></script>
 </body>
 </html>
-
