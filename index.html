@@ -1,18 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>🌿 Guía Espiritual del Cuerpo y la Mente</title>
   <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <meta name="theme-color" content="#0b6b4a" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🌿 Guía Espiritual del Cuerpo y la Mente</h1>
-  <p>Bienvenido a tu guía espiritual. Puedes instalar esta aplicación en tu dispositivo.</p>
+  <header class="app-header">
+    <div class="title-group">
+      <h1>🌿 Guía Espiritual del Cuerpo y la Mente</h1>
+      <p class="subtitle">Conecta tu cuerpo, tu mente y tu espíritu</p>
+    </div>
+    <div class="controls">
+      <button id="theme-toggle" aria-pressed="false" title="Modo oscuro/claro">🌗</button>
+      <button id="install-btn" class="install-btn" hidden>Instalar app</button>
+    </div>
+  </header>
 
-  <div id="app"></div>
+  <main class="container">
+    <section class="days">
+      <!-- day buttons injected by JS -->
+    </section>
 
-  <script src="app.js"></script>
+    <section class="content">
+      <div class="day-header">
+        <h2 id="selected-day">Seleccione un día</h2>
+        <p id="day-note" class="muted">Toca un día para ver actividades espirituales sugeridas.</p>
+      </div>
+
+      <div id="activities" class="activities">
+        <!-- activities injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <template id="activity-tpl">
+    <article class="activity">
+      <div class="activity-left">
+        <h3 class="activity-title"></h3>
+        <p class="activity-reflection muted"></p>
+      </div>
+      <div class="activity-right">
+        <div class="meta">
+          <span class="brainwave"></span>
+          <span class="bpm"></span>
+        </div>
+        <blockquote class="verse"></blockquote>
+      </div>
+    </article>
+  </template>
+
+  <footer class="footer muted">
+    <small>Diseñado para práctica diaria y reflexión. Funciona offline una vez instalada.</small>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
+
